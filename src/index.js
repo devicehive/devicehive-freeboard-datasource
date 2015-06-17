@@ -79,7 +79,7 @@
 	freeboard.loadDatasourcePlugin({
 		"type_name"			: "DeviceHive",
 		"display_name"		: "DeviceHive",
-		"description"		: ' <a target="_blank" href="http://devicehive.com">DeviceHive</a> datasource plugin, <em>by <a target="_blank" href="https://github.com/sorjef">Artem Sorokin</a></em>. The plugin integrates your realtime device notificaitons with freeboard.',
+		"description"		: ' <a target="_blank" href="http://devicehive.com">DeviceHive</a> datasource plugin, by <a target="_blank" href="https://github.com/sorjef">Artem Sorokin</a>. The plugin integrates your realtime device notificaitons with freeboard.',
 		"external_scripts"	: [ 
 			"https://rawgit.com/devicehive/devicehive-javascript/0dd7a31f2335dc1cf077d45ff7458492381755bb/build/browser/devicehive.client.min.js",
 			"https://rawgit.com/devicehive/devicehive-javascript/0dd7a31f2335dc1cf077d45ff7458492381755bb/build/browser/devicehive.client.jquery.min.js",
