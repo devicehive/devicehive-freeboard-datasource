@@ -16,10 +16,13 @@ cd freeboard
 git submodule update --init --recursive
 ```
 
-If you want to use more stable version - change the first line:
+If you want to use more stable version - checkout `v1.1.0-dh` branch. The full script looks as follows
 
 ```sh
 git clone git@github.com:devicehive/freeboard.git
+cd freeboard
+git checkout v1.1.0-dh
+git submodule update --init --recursive
 ```
 
 # Screenshots
