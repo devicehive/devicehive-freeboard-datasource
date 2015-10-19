@@ -12,6 +12,18 @@
         var res = _.compact(_.pluck(arr, 'value'));
         return res.length > 0 ? res : null;
     };
+    
+    
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+        }
+        return "";
+    }    
 
     var DeviceHiveDataSourcePlugin = function(settings, updateCallback) {
         var self = this;
@@ -89,7 +101,7 @@
                 "name"          : "server",
                 "display_name"  : "Server API URL",
                 "type"          : "text",
-                "default_value" : "http://nnxxxx.pg.devicehive.com/api",
+                "default_value" : "http://playground.devicehive.com/api/rest",
                 "description"   : 'DeviceHive cloud API URL. To quickly get running instance of the DeviecHive cloud you can set up a <a target="_blank" href="http://devicehive.com/playground">playground on devicehive.com website</a>',
                 "required"      : true
             },
@@ -97,7 +109,7 @@
                 "name"          : "accessKey",
                 "display_name"  : "Access Key",
                 "type"          : "text",
-                "default_value" : "AccessKeyExampleAccessKeyExampleAccessKeyEx=",
+                "default_value" : (getCookie('deviceHiveToken') || "AccessKeyExampleAccessKeyExampleAccessKeyEx="),
                 "description"   : 'Access key which is authorized to query device notifications. You can generate an access key using admin console by navigating to http://host/admin/#accesskeys or <a target="_blank" href="http://devicehive.com/restful#Reference/AccessKey/insert">by issuing a POST request</a>',
                 "required"      : true
             },
@@ -110,7 +122,7 @@
                         "name"          : "value",
                         "display_name"  : "",
                         "type"          : "text",
-                        "default_value" : 'e50d6085-2aba-48e9-b1c3-73c673e414ae',
+                        "default_value" : 'snappy-device',
                         "required"      : true
                     }
                 ]
