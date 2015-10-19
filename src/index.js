@@ -109,7 +109,7 @@
                 "name"          : "accessKey",
                 "display_name"  : "Access Key",
                 "type"          : "text",
-                "default_value" : (getCookie('deviceHiveToken') || "AccessKeyExampleAccessKeyExampleAccessKeyEx="),
+                "default_value" : (getCookie('DeviceHiveToken') || "AccessKeyExampleAccessKeyExampleAccessKeyEx="),
                 "description"   : 'Access key which is authorized to query device notifications. You can generate an access key using admin console by navigating to http://host/admin/#accesskeys or <a target="_blank" href="http://devicehive.com/restful#Reference/AccessKey/insert">by issuing a POST request</a>',
                 "required"      : true
             },
