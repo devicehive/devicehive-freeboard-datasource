@@ -30,3 +30,53 @@ git submodule update --init --recursive
 ![UI](/res/screen-1.png)
 
 ![In Action](/res/screen-2.gif)
+
+# DeviceHive Datasource Setup
+
+To add [DeviceHive](http://devicehive.com) datasource click add button below Datasources.
+1. Select DeviceHive datasource type
+
+2. Enter the following parameters:
+    
+    2.1. Type: DeviceHive
+    
+    2.2. Name: You can enter any name you like (e.g. 'DH')
+    
+    2.3. Server API URL: Enter your [DeviceHive](http://devicehive.com) Server.
+     
+        Examples: 
+    
+        2.3.1. For Playground use http://playground.dev.devicehive.com/api/rest,
+    
+        2.3.2. For Local Server use http://localhost:8080/dh/rest
+    
+    2.4. JWT Token: Can be found on your [DeviceHive](http://devicehive.com) Server, e.g on [Playground Swagger JwtToken](http://playground.dev.devicehive.com/api/swagger.html?url=http://playground.dev.devicehive.com:80/api/rest/swagger.json#!/JwtToken/login)
+    
+    2.5. DEVICE IDS: From these devices notifications will be shown. Device Id Can be found in admin console. Several devices can be mentioned separated by commas
+    
+    ![Devices](/res/screen-1.png)
+    
+    If left blank the notification for all devices will be visualized.
+    
+    2.6. NOTIFICATION NAME: Notification with the mentioned names only will be shown. If left blank all notification names will be visualized.
+     
+# Widget setup examples
+
+Notification sample
+
+![Notification](/res/notification.png)
+
+Widget 1
+
+![Widget 1](/res/widget-1.png)
+
+![Widget 1 Setup](/res/widget-1-setup.png)
+
+Widget 2
+
+![Widget 2](/res/widget-2.png)
+
+![Widget 2 Setup](/res/widget-2-setup.png)
+    
+    
+
