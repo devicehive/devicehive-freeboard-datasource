@@ -46,7 +46,7 @@ To add [DeviceHive](http://devicehive.com) datasource click add button below Dat
      
         Examples: 
     
-        2.3.1. For Playground use http://playground.dev.devicehive.com/api/rest,
+        2.3.1. For Playground use http://playground.devicehive.com/api/rest,
     
         2.3.2. For Local Server use http://localhost:8080/dh/rest
     
@@ -54,7 +54,7 @@ To add [DeviceHive](http://devicehive.com) datasource click add button below Dat
     
     2.5. DEVICE IDS: From these devices notifications will be shown. Device Id Can be found in admin console. Several devices can be mentioned separated by commas
     
-    ![Devices](/res/screen-1.png)
+    ![Devices](/res/devices.png)
     
     If left blank the notification for all devices will be visualized.
     
@@ -77,6 +77,21 @@ Widget 2
 ![Widget 2](/res/widget-2.png)
 
 ![Widget 2 Setup](/res/widget-2-setup.png)
-    
-    
 
+#Start freeboard
+
+Freeboard can be started with
+
+`open index.html`
+    
+Or it can be started in nginx. For this add
+     
+```
+location /freeboard {
+    sendfile on;
+    root path/to/the/parent/of/freeboard/;
+    index index.html;
+}
+```
+
+to the server section of nginx.conf. [More details on github](https://github.com/devicehive/freeboard).

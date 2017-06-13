@@ -102,15 +102,15 @@
                 "display_name"  : "Server API URL",
                 "type"          : "text",
                 "default_value" : "http://playground.devicehive.com/api/rest",
-                "description"   : 'DeviceHive cloud API URL. To quickly get running instance of the DeviecHive cloud you can set up a <a target="_blank" href="http://devicehive.com/playground">playground on devicehive.com website</a>',
+                "description"   : 'DeviceHive cloud API URL. To quickly get running instance of the DeviecHive cloud you can set up a <a target="_blank" href="http://playground.devicehive.com">playground on devicehive.com website</a>',
                 "required"      : true
             },
             {
                 "name"          : "token",
                 "display_name"  : "Jwt Token",
                 "type"          : "text",
-                "default_value" : (getCookie('DeviceHiveToken') || "JwtTokenExampleJwtTokenExampleJwtTokenEx="),
-                "description"   : 'Jwt token which is authorized to query device notifications. You can generate a token using admin console by navigating to http://host/admin/#jwt-token or <a target="_blank" href="http://devicehive.com/restful#Reference/Authentication/login">by issuing a POST request</a>',
+                "default_value" : (getCookie('DeviceHiveToken') || ""),
+                "description"   : 'Jwt token which is authorized to query device notifications. You can generate a token using admin console by navigating to http://host/admin/#jwt-token or <a target="_blank" href="http://devicehive.com/restful/#Reference/Authentication/login">by issuing a POST request</a>',
                 "required"      : true
             },
             {
