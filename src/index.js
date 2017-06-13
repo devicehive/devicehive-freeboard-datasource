@@ -12,8 +12,8 @@
         var res = _.compact(_.pluck(arr, 'value'));
         return res.length > 0 ? res : null;
     };
-    
-    
+
+
     function getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
@@ -23,7 +23,7 @@
             if (c.indexOf(name) == 0) return decodeURIComponent(c.substring(name.length,c.length));
         }
         return "";
-    }    
+    }
 
     var DeviceHiveDataSourcePlugin = function(settings, updateCallback) {
         var self = this;
@@ -37,7 +37,7 @@
                         <ul> \
                             <li>- Is the URL you specified a valid DeviceHive API URL? <small>Example of the valid one: <em>http://domain/api</em></small></li> \
                             <li>- Is you instance accessible from the internet? <small>You can check that by navigating to api-url/info. Example: <em>http://domain/api/info</em></small></li> \
-                            <li>- Does an access key have sufficient permissions? <small>You can configure access key permissions with an admin console or <a target="_blank" href="http://devicehive.com/restful#Reference/AccessKey/update"> by manually issuing a PUT request </a></small></li> \
+                            <li>- Does a jwt token have sufficient permissions? <small>You can configure token permissions with an admin console or <a target="_blank" href="http://devicehive.com/restful#Reference/Authentication/login"> by manually issuing a POST request </a></small></li> \
                         </ul> \
                     </div> \
                 </div> \
@@ -45,7 +45,7 @@
         };
 
         var init = function(settings) {
-            var dh = self.devicehive = $.dhClient(settings.server, settings.accessKey);
+            var dh = self.devicehive = $.dhClient(settings.server, settings.token);
             return dh.openChannel().then(function(channel) {
                 var params = {
                     deviceIds: pluckArraySettings(settings.deviceIds),
@@ -54,7 +54,7 @@
 
                 return dh.subscribe(params);
             }).then(function (sub) {
-                return sub.message(function (deviceGuid, notification) {
+                return sub.message(function (deviceId, notification) {
                     updateCallback(notification);
                 });
             }).fail(function (err) {
@@ -93,8 +93,8 @@
         "display_name"      : "DeviceHive",
         "description"       : ' <a target="_blank" href="http://devicehive.com">DeviceHive</a> datasource plugin, by <a target="_blank" href="https://github.com/sorjef">Artem Sorokin</a>. The plugin integrates your realtime device notificaitons with freeboard.',
         "external_scripts"  : [
-            "https://rawgit.com/devicehive/devicehive-javascript/0dd7a31f2335dc1cf077d45ff7458492381755bb/build/browser/devicehive.client.min.js",
-            "https://rawgit.com/devicehive/devicehive-javascript/0dd7a31f2335dc1cf077d45ff7458492381755bb/build/browser/devicehive.client.jquery.min.js",
+            "https://rawgit.com/devicehive/devicehive-javascript/5928519d039efe7c6f9bd73fd84a8b8704cba8a8/build/browser/devicehive.client.min.js",
+            "https://rawgit.com/devicehive/devicehive-javascript/5928519d039efe7c6f9bd73fd84a8b8704cba8a8/build/browser/devicehive.client.jquery.min.js",
         ],
         "settings": [
             {
@@ -106,11 +106,11 @@
                 "required"      : true
             },
             {
-                "name"          : "accessKey",
-                "display_name"  : "Access Key",
+                "name"          : "token",
+                "display_name"  : "Jwt Token",
                 "type"          : "text",
-                "default_value" : (getCookie('DeviceHiveToken') || "AccessKeyExampleAccessKeyExampleAccessKeyEx="),
-                "description"   : 'Access key which is authorized to query device notifications. You can generate an access key using admin console by navigating to http://host/admin/#accesskeys or <a target="_blank" href="http://devicehive.com/restful#Reference/AccessKey/insert">by issuing a POST request</a>',
+                "default_value" : (getCookie('DeviceHiveToken') || "JwtTokenExampleJwtTokenExampleJwtTokenEx="),
+                "description"   : 'Jwt token which is authorized to query device notifications. You can generate a token using admin console by navigating to http://host/admin/#jwt-token or <a target="_blank" href="http://devicehive.com/restful#Reference/Authentication/login">by issuing a POST request</a>',
                 "required"      : true
             },
             {
