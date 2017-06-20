@@ -52,31 +52,51 @@ To add [DeviceHive](http://devicehive.com) datasource click add button below Dat
     
     2.4. JWT Token: Can be found on your [DeviceHive](http://devicehive.com) Server, e.g on [Playground Swagger JwtToken](http://playground.dev.devicehive.com/api/swagger.html?url=http://playground.dev.devicehive.com:80/api/rest/swagger.json#!/JwtToken/login)
     
-    2.5. DEVICE IDS: From these devices notifications will be shown. Device Id Can be found in admin console. Several devices can be mentioned separated by commas
+    2.5. DEVICE IDS: From these devices notifications will be shown. Device Id Can be found in admin console. User needs to hit Add button to add several devices.
     
     ![Devices](/res/devices.png)
     
     If left blank the notification for all devices will be visualized.
     
-    2.6. NOTIFICATION NAME: Notification with the mentioned names only will be shown. If left blank all notification names will be visualized.
+    2.6. NOTIFICATION NAME: Notification with the mentioned names only will be shown. If left blank all notification names will be visualized. User needs to hit Add button to add several notification names.
+
      
 # Widget setup examples
 
-Notification sample
+Notification sample 1 (integer value)
 
 ![Notification](/res/notification.png)
 
 Widget 1
 
-![Widget 1](/res/widget-1.png)
+![Widget 1-1 Setup](/res/widget-1-1-setup.png)
 
-![Widget 1 Setup](/res/widget-1-setup.png)
+![Widget 1](/res/widget-1.png)
 
 Widget 2
 
+![Widget 1-2 Setup](/res/widget-1-2-setup.png)
+
 ![Widget 2](/res/widget-2.png)
 
-![Widget 2 Setup](/res/widget-2-setup.png)
+
+Notification sample 2 (json object) 
+
+![Notification](/res/notification_json.png)
+
+Widget 1
+
+![Widget 2-1 Setup](/res/widget-2-1-setup.png)
+
+![Widget 1](/res/widget-1.png)
+
+
+Widget 2
+
+![Widget 2-2 Setup](/res/widget-2-2-setup.png)
+
+![Widget 2](/res/widget-2.png)
+
 
 #Start freeboard
 
@@ -95,3 +115,11 @@ location /freeboard {
 ```
 
 to the server section of nginx.conf. [More details on github](https://github.com/devicehive/freeboard).
+
+
+#Load/Start freeboard
+
+User can load or save freeboards with a help of corresponding icons in the upper left corner (below the 'Freeboard' caption).
+
+If saved freeboards with DeviceHive Datasource are used it can be required to change some datasource settings such as for example JWT token. 
+
